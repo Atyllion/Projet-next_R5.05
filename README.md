@@ -2,7 +2,7 @@
 
 La branche **Release** est utilisée comme branche de production. Elle sert à :
 
-- 🌐 Déployer le code validé sur l'environnement de production via CI/CD (Vercel).
+- 🌐 Déployer le code validé sur l'environnement de production via CI/CD.
 - 🔒 Garantir que le code en production est stable et testé.
 
 ## Utilisation
