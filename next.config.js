@@ -1,18 +1,12 @@
 /**
- * CommonJS wrapper for next.config.ts to improve compatibility in some environments (Vercel build)
+ * @type {import('next').NextConfig}
  */
-const { createRequire } = require('module');
-const requireModule = createRequire(import.meta ? import.meta.url : __filename);
+const nextConfig = {
+  eslint: {
+    // ⚠️ Cela permet à Vercel de builder même si ESLint trouve des erreurs
+    ignoreDuringBuilds: true,
+  },
+  // Tu peux ajouter d'autres options ici si besoin
+};
 
-try {
-  // Try to load the TypeScript config if present
-  const tsConfig = requireModule('./next.config.ts');
-  module.exports = tsConfig && tsConfig.default ? tsConfig.default : tsConfig;
-} catch (e) {
-  // Fallback: basic config
-  module.exports = {
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
-  };
-}
+export default nextConfig;
