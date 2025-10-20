@@ -1,19 +1,18 @@
-# Branch 🚧 Develop
+### 🚀 Sprint 1 — Mise en place & Authentification
 
-La branche **Develop** est utilisée comme branche de préproduction. Elle sert à :
+- **US1.1 — Créer un compte (email / mot de passe)**  
+   En tant qu’utilisateur·rice, je veux pouvoir créer un compte pour sauvegarder mes données.
+   - 📝 Formulaire d’inscription (email + mot de passe)
+   - ✅ Validation des champs (email valide, mot de passe sécurisé)
+   - 💾 Connexion au stockage / base de données pour créer l’utilisateur
+   - ⚠️ Gestion des erreurs : email déjà utilisé, mot de passe trop faible, champs manquants
 
-- 🛠️ Intégrer les modifications issues des branches de sprint (Sprint-[id]).
-- 🐞 Effectuer des tests et corriger les bugs avant de fusionner dans la branche **Release**.
-- ✅ Garantir la stabilité du code avant le déploiement en production.
-
-## Utilisation
-
-1. **Merge des branches Sprint** :
-   - 🔄 Une fois un sprint terminé, les modifications sont fusionnées dans la branche **Develop**.
-   - ⚠️ Les conflits de merge sont résolus dans cette branche.
-
-2. **Préparation pour la production** :
-   - 🚀 Une fois validée, la branche **Develop** est fusionnée dans la branche **Release** pour le déploiement.
+- **US1.2 — Connexion / Déconnexion**  
+   En tant qu’utilisateur·rice, je veux me connecter et me déconnecter pour accéder à mes habitudes depuis n’importe quel appareil.
+   - 🔐 Formulaire de connexion (email + mot de passe)
+   - 🔁 Option « Mot de passe oublié » / réinitialisation par email
+   - 🔒 Gestion de la session (cookies / JWT / sessions serveur)
+   - 🚪 Bouton de déconnexion et nettoyage de la session
 
 ---
 
