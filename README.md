@@ -1,20 +1,19 @@
-# Branch 🚀 Release
+# Branch 🚧 Develop
 
-La branche **Release** est utilisée comme branche de production. Elle sert à :
+La branche **Develop** est utilisée comme branche de préproduction. Elle sert à :
 
-- 🌐 Déployer le code validé sur l'environnement de production via CI/CD.
-- 🔒 Garantir que le code en production est stable et testé.
+- 🛠️ Intégrer les modifications issues des branches de sprint (Sprint-[id]).
+- 🐞 Effectuer des tests et corriger les bugs avant de fusionner dans la branche **Release**.
+- ✅ Garantir la stabilité du code avant le déploiement en production.
 
 ## Utilisation
 
-1. **Fusion depuis Develop** :
-   - 🔄 Une fois les tests terminés sur la branche **Develop**, celle-ci est fusionnée dans **Release**.
+1. **Merge des branches Sprint** :
+   - 🔄 Une fois un sprint terminé, les modifications sont fusionnées dans la branche **Develop**.
+   - ⚠️ Les conflits de merge sont résolus dans cette branche.
 
-2. **Déploiement** :
-   - 🚀 Le pipeline CI/CD déploie automatiquement le code. (Probablement sur Vercel)
-
-3. **Maintenance** :
-   - 🛠️ Les hotfixes ou corrections urgentes peuvent être directement appliqués sur cette branche si nécessaire.
+2. **Préparation pour la production** :
+   - 🚀 Une fois validée, la branche **Develop** est fusionnée dans la branche **Release** pour le déploiement.
 
 ---
 
