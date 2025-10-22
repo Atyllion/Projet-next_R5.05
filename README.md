@@ -103,74 +103,80 @@
 # 🗂️ Hiérarchie du Projet
 
 ```
-Projet_next/
-├── public/                     # Fichiers publics accessibles directement (images, icônes, etc.)
-│   ├── favicon.ico
-│   ├── logo.png
-│   └── ...
+Projet_next/                        # Racine du projet Next.js
+├── public/                         # Contient les fichiers statiques accessibles directement via l’URL
+│   ├── favicon.ico                 # Icône affichée dans l’onglet du navigateur
+│   ├── logo.png                    # Logo du projet (utilisé dans la navbar, etc.)
+│   └── ...                         # Autres fichiers statiques (images, manifest.json, etc.)
 │
-├── prisma/                     # Schéma et migrations Prisma
-│   ├── schema.prisma           # Définition du modèle de données (PostgreSQL)
-│   └── migrations/             # Historique des migrations générées
+├── prisma/                         # Tout ce qui concerne Prisma (ORM)
+│   ├── schema.prisma               # Définition du schéma de la base de données (User, Habit, etc.)
+│   └── migrations/                 # Historique des migrations générées par Prisma
 │
-├── src/                        # Code source principal
-│   ├── pages/                  # Pages Next.js (routes front)
-│   │   ├── api/                # API Routes (backend léger)
-│   │   │   ├── habits/         
-│   │   │   │   ├── index.ts    # CRUD des habitudes (GET, POST)
-│   │   │   │   └── [id].ts     # Gestion d'une habitude spécifique (PUT, DELETE)
-│   │   │   └── auth/           
-│   │   │       ├── login.ts    # Endpoint de connexion
-│   │   │       ├── register.ts # Endpoint d'inscription
-│   │   │       └── logout.ts   # Endpoint de déconnexion
-│   │   ├── index.tsx           # Page d'accueil
-│   │   ├── dashboard.tsx       # Dashboard utilisateur
-│   │   └── habits/             
-│   │       ├── index.tsx       # Liste des habitudes
-│   │       └── [id].tsx        # Détail d'une habitude
+├── src/                            # Code source principal
+│   ├── app/                        # App Router de Next.js (chaque dossier = une route)
+│   │   ├── layout.tsx              # Layout global (Navbar, Providers, styles globaux)
+│   │   ├── page.tsx                # Page d’accueil "/" (redirection vers /login)
+│   │   │
+│   │   ├── login/                  # Route "/login"
+│   │   │   └── page.tsx            # Page de connexion (formulaire + logique d’auth)
+│   │   │
+│   │   ├── register/               # Route "/register"
+│   │   │   └── page.tsx            # Page d’inscription (formulaire + logique d’auth)
+│   │   │
+│   │   ├── dashboard/              # Route "/dashboard"
+│   │   │   └── page.tsx            # Tableau de bord utilisateur (vue globale des habitudes)
+│   │   │
+│   │   ├── habits/                 # Route "/habits"
+│   │   │   ├── page.tsx            # Liste des habitudes (lecture via Prisma dans un Server Component)
+│   │   │   ├── actions.ts          # Server Actions (ajout, suppression, update d’habitudes)
+│   │   │   └── [id]/page.tsx       # Page de détail d’une habitude (vue individuelle)
+│   │   │
+│   │   └── profil/                 # Route "/profil"
+│   │       └── page.tsx            # Page profil utilisateur (infos + édition)
 │   │
-│   ├── components/             # Composants réutilisables
-│   │   ├── ui/                 # Composants générés par shadcn/ui (basés sur Tailwind)
-│   │   │   ├── button.tsx
-│   │   │   ├── input.tsx
-│   │   │   ├── dialog.tsx
-│   │   │   ├── card.tsx
-│   │   │   └── ...
-│   │   ├── Navbar.tsx
-│   │   ├── HabitCard.tsx
-│   │   ├── HabitForm.tsx
-│   │   ├── ProgressChart.tsx
-│   │   └── ReminderModal.tsx
+│   ├── components/                 # Composants réutilisables (UI et logique front)
+│   │   ├── ui/                     # Composants générés par shadcn/ui (basés sur Tailwind)
+│   │   │   ├── button.tsx          # Bouton stylisé
+│   │   │   ├── input.tsx           # Champ de saisie stylisé
+│   │   │   ├── dialog.tsx          # Fenêtre modale
+│   │   │   ├── card.tsx            # Carte stylisée
+│   │   │   └── ...                 # Autres composants UI
+│   │   ├── Navbar.tsx              # Barre de navigation (liens vers login, dashboard, profil, etc.)
+│   │   ├── HabitCard.tsx           # Carte affichant une habitude (titre, statut, actions)
+│   │   ├── HabitForm.tsx           # Formulaire pour créer/éditer une habitude
+│   │   ├── ProgressChart.tsx       # Graphique (avec Recharts) pour visualiser la progression
+│   │   └── ReminderModal.tsx       # Modale pour configurer des rappels
 │   │
-│   ├── context/                # Context API pour l'état global
-│   │   ├── AuthContext.tsx
-│   │   └── HabitContext.tsx
+│   ├── context/                    # Context API (état global partagé)
+│   │   ├── AuthContext.tsx         # Contexte d’authentification (user connecté, token, etc.)
+│   │   └── HabitContext.tsx        # Contexte pour gérer les habitudes côté front
 │   │
-│   ├── lib/                    # Fonctions utilitaires et helpers
-│   │   ├── prisma.ts           # Client Prisma (connexion à PostgreSQL)
-│   │   ├── auth.ts             # Gestion de l'authentification
-│   │   └── utils.ts            # Fonctions génériques (dates, calculs de streaks)
+│   ├── lib/                        # Fonctions utilitaires côté serveur
+│   │   ├── prisma.ts               # Client Prisma (singleton pour éviter les multiples connexions)
+│   │   ├── auth.ts                 # Fonctions d’auth (login, register, vérification JWT/Supabase)
+│   │   └── utils.ts                # Helpers génériques (dates, calculs de streaks, etc.)
 │   │
-│   ├── hooks/                  # Hooks personnalisés
-│   │   ├── useAuth.ts
-│   │   ├── useHabits.ts
-│   │   └── useNotifications.ts
+│   ├── hooks/                      # Hooks React personnalisés
+│   │   ├── useAuth.ts              # Hook pour accéder facilement au contexte d’auth
+│   │   ├── useHabits.ts            # Hook pour gérer les habitudes côté client
+│   │   └── useNotifications.ts     # Hook pour gérer les notifications/rappels
 │   │
-│   ├── styles/                 # Fichiers de styles
-│   │   ├── globals.css         # Import Tailwind + styles globaux
-│   │   └── habit.module.css    # Styles spécifiques
+│   ├── styles/                     # Styles globaux et modules CSS
+│   │   ├── globals.css             # Import Tailwind + styles globaux
+│   │   └── habit.module.css        # Styles spécifiques à certaines pages/composants
 │   │
-│   └── types/                  # Types TypeScript partagés
-│       └── habit.d.ts
+│   └── types/                      # Types TypeScript partagés
+│       └── habit.d.ts              # Définition des types (Habit, etc.)
 │
-├── .env.local                  # Variables d'environnement (DATABASE_URL, JWT_SECRET, etc.)
-├── .gitignore
-├── next.config.js
-├── package.json
-├── postcss.config.js           # Config PostCSS (nécessaire pour Tailwind)
-├── tailwind.config.js          # Config Tailwind (scan des fichiers src/)
-├── tsconfig.json
-└── README.md
+├── .env.local                      # Variables d’environnement (DATABASE_URL, clés Supabase, etc.)
+├── .gitignore                      # Fichiers/dossiers ignorés par Git
+├── next.config.js                  # Configuration Next.js
+├── package.json                    # Dépendances et scripts du projet
+├── postcss.config.js               # Config PostCSS (utilisé par Tailwind)
+├── tailwind.config.js              # Config Tailwind (scan des fichiers src/)
+├── tsconfig.json                   # Config TypeScript
+└── README.md                       # Documentation du projet             
 ```
 ---
 
