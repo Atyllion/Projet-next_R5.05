@@ -169,7 +169,7 @@ Projet_next/                        # Racine du projet Next.js
 │   └── types/                      # Types TypeScript partagés
 │       └── habit.d.ts              # Définition des types (Habit, etc.)
 │
-├── .env.local                      # Variables d’environnement (DATABASE_URL, clés Supabase, etc.)
+├── .env                            # Variables d’environnement (DATABASE_URL, clés Supabase, etc.)
 ├── .gitignore                      # Fichiers/dossiers ignorés par Git
 ├── next.config.js                  # Configuration Next.js
 ├── package.json                    # Dépendances et scripts du projet
