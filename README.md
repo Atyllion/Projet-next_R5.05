@@ -133,8 +133,8 @@ Projet_next/                        # Racine du projet Next.js
 │   │   │   ├── actions.ts          # Server Actions (ajout, suppression, update d’habitudes)
 │   │   │   └── [id]/page.tsx       # Page de détail d’une habitude (vue individuelle)
 │   │   │
-│   │   ├── profil/                 # Route "/profil"
-│   │   │   └── page.tsx            # Page profil utilisateur (infos + édition)
+│   │   └── profil/                 # Route "/profil"
+│   │       └── page.tsx            # Page profil utilisateur (infos + édition)
 │   │
 │   ├── components/                 # Composants réutilisables (UI et logique front)
 │   │   ├── ui/                     # Composants générés par shadcn/ui (basés sur Tailwind)
