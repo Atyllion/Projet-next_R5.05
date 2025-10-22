@@ -117,6 +117,7 @@ Projet_next/                        # Racine du projet Next.js
 │   ├── app/                        # App Router de Next.js (chaque dossier = une route)
 │   │   ├── layout.tsx              # Layout global (Navbar, Providers, styles globaux)
 │   │   ├── page.tsx                # Page d’accueil "/" (redirection vers /login)
+│   │   ├── globals.css             # Import Tailwind + styles globaux
 │   │   │
 │   │   ├── login/                  # Route "/login"
 │   │   │   └── page.tsx            # Page de connexion (formulaire + logique d’auth)
@@ -132,8 +133,8 @@ Projet_next/                        # Racine du projet Next.js
 │   │   │   ├── actions.ts          # Server Actions (ajout, suppression, update d’habitudes)
 │   │   │   └── [id]/page.tsx       # Page de détail d’une habitude (vue individuelle)
 │   │   │
-│   │   └── profil/                 # Route "/profil"
-│   │       └── page.tsx            # Page profil utilisateur (infos + édition)
+│   │   ├── profil/                 # Route "/profil"
+│   │   │   └── page.tsx            # Page profil utilisateur (infos + édition)
 │   │
 │   ├── components/                 # Composants réutilisables (UI et logique front)
 │   │   ├── ui/                     # Composants générés par shadcn/ui (basés sur Tailwind)
@@ -163,7 +164,6 @@ Projet_next/                        # Racine du projet Next.js
 │   │   └── useNotifications.ts     # Hook pour gérer les notifications/rappels
 │   │
 │   ├── styles/                     # Styles globaux et modules CSS
-│   │   ├── globals.css             # Import Tailwind + styles globaux
 │   │   └── habit.module.css        # Styles spécifiques à certaines pages/composants
 │   │
 │   └── types/                      # Types TypeScript partagés
