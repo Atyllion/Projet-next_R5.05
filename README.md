@@ -163,9 +163,6 @@ Projet_next/                        # Racine du projet Next.js
 │   │   ├── useHabits.ts            # Hook pour gérer les habitudes côté client
 │   │   └── useNotifications.ts     # Hook pour gérer les notifications/rappels
 │   │
-│   ├── styles/                     # Styles globaux et modules CSS
-│   │   └── habit.module.css        # Styles spécifiques à certaines pages/composants
-│   │
 │   └── types/                      # Types TypeScript partagés
 │       └── habit.d.ts              # Définition des types (Habit, etc.)
 │
