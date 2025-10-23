@@ -16,6 +16,12 @@
 
 ---
 
+```
+il a du mal a trouver la BDD, donc ont verra cela plus tard maintenant ont vas faire autre chose : il faut que tu créer les pages login et register, j'ai déja créer les dossier et les fichiers, il faut juste que tu m'écrive un prompt pour claude 4.5, afin qu'il comprenne ce qu'il faut faire : créer l'interface des page login et register avec shadcn//ui, et créer une redirection permanante, si l'utilisateur n'est pas connecter, afin de vérifier cela dis lui d'implémenter la logique de connexion avec next : "https://nextjs.org/docs/app/guides/authentication", il me semble qu'avec SupaBase, la base de donnée que j'utilise, ont peut gérer les token de sessions, docn il faudra regarder cela également, fait en sorte que le prompt soit complet et précis dans mes demande, merci
+```
+
+---
+
 # Next.js App Template
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
